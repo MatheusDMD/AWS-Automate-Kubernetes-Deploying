@@ -84,9 +84,9 @@ spec:
       - name: {0}
         image: {1}
         ports:
-        - containerPort: 80
+        - containerPort: {2}
 
-        """.format(args.name, args.image, args.replicas)
+        """.format(args.name, args.image, args.replicas, args.target_port)
         f.write( var )
     success_log = "Deployment configuration File    {0}".format(bcolors.OKAY)
     print(success_log)
@@ -195,12 +195,12 @@ def bye(args):
 
 FUNCTION_MAP = {'create': create, 'config': hosted, 'deploy': deploy ,'delete': delete }
 
-parser = argparse.ArgumentParser(description='Marotzke Deployement Services')
+parser = argparse.ArgumentParser(description='Kubernetes@AWS Automate Deployement')
 
 parser.add_argument('command',choices=FUNCTION_MAP.keys())
 
-parser.add_argument('--name', default='matheusmarotzke-webapp', 
-        help='application name (default: %(default)s)')
+parser.add_argument('--name', 
+        help='application name (Recommended: "<your_domain>-webapp")', required=True)
 
 parser.add_argument('--zones',choices=possible_regions, default='us-east-2', 
         help='the zones to run instances (default: %(default)s)')
@@ -211,8 +211,8 @@ parser.add_argument('--master-size',choices=possible_machines, default='t2.micro
 parser.add_argument('--node-size',choices=possible_machines, default='t2.micro', 
         help='the size of node machine (default: %(default)s)')
 
-parser.add_argument('--domain', default='cluster.matheusmarotzke.com', 
-        help='application domain for cluster (default: %(default)s)')
+parser.add_argument('--domain', 
+        help='application domain for cluster', required=True)
 
 parser.add_argument('--image', default='matheusdmd/python-simple:v2', 
         help='image to be deployed (default: %(default)s)')
@@ -221,7 +221,7 @@ parser.add_argument('--target-port', default='80',
         help='target port for your deployed application (default: %(default)s)')
 
 parser.add_argument('--replicas', default='2', 
-        help='number of pod replicas for the cluster(default: %(default)s)')
+        help='number of pod replicas for the cluster (default: %(default)s)')
 
 args = parser.parse_args()
 func = FUNCTION_MAP[args.command]
