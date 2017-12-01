@@ -1,5 +1,9 @@
 # Kubernetes @ AWS Automate Deployement
 
+## SOLUTION DIAGRAM
+
+![alt text](https://github.com/MatheusDMD/AWS-Automate-Kubernetes-Deploying/blob/master/images/solution_diagram.jpg "Diagram")
+
 ## PRE-REQUIREMENTS
 
 - `brew install kubectl`
@@ -7,18 +11,13 @@
 - `brew install jq`
 - `install awscli`
 
-## SOLUTION DIAGRAM
-
-![alt text](https://github.com/MatheusDMD/AWS-Automate-Kubernetes-Deploying/blob/master/images/solution_diagram.jpg "Diagram")
-
+## CLUSTER
 [CLI code](https://github.com/MatheusDMD/AWS-Automate-Kubernetes-Deploying/blob/master/k8s%40AWS/marotzke.py)
 
-## CLUSTER
+### Creates a bucket on S3
 
 create AWS BUCKET
 [include location constraint](docs.aws.amazon.com/general/latest/gr/rande.html)
-
-### Creates a bucket on S3
 
 - `--create-bucket-configuration LocationConstraint=us-east-2`
 
@@ -135,6 +134,7 @@ Get the link from `LoadBalancer Ingress:` that will allow you to access your app
 `kops delete cluster --name=<your_domain> --state=s3://<your_domain>`
 
 Your Route53 and the S3 service will still be running.
+
 
 ## NEXT STEPS
 
