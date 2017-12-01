@@ -1,0 +1,21 @@
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: matheusmarotzke-webapp
+  labels:
+    app: matheusmarotzke-webapp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: matheusmarotzke-webapp
+    spec:
+      containers:
+      - name: matheusmarotzke-webapp
+        image: matheusdmd/python-simple:v2
+        ports:
+        - containerPort: 80
+
+        
