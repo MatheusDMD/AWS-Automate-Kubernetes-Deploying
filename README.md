@@ -9,7 +9,7 @@
 - `brew install kubectl`
 - `brew install kops`
 - `brew install jq`
-- `install awscli`
+- `install awscli` (and configure key-set)
 
 ## CLUSTER
 [CLI code](https://github.com/MatheusDMD/AWS-Automate-Kubernetes-Deploying/blob/master/k8s%40AWS/marotzke.py)
@@ -18,8 +18,6 @@
 
 create AWS BUCKET
 [include location constraint](docs.aws.amazon.com/general/latest/gr/rande.html)
-
-- `--create-bucket-configuration LocationConstraint=us-east-2`
 
 - `aws s3api create-bucket --bucket <your_domain> --create-bucket-configuration LocationConstraint=us-east-2`
 
