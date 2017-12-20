@@ -2,7 +2,7 @@
 
 ## SOLUTION DIAGRAM
 
-![alt text](https://github.com/MatheusDMD/AWS-Automate-Kubernetes-Deploying/blob/master/images/solution_diagram.jpg "Diagram")
+![alt text](./images/solution_diagram.jpg "Diagram")
 
 ## PRE-REQUIREMENTS
 
@@ -51,7 +51,7 @@ returned:
 ]
 ```
 
-![alt text](https://github.com/MatheusDMD/AWS-Automate-Kubernetes-Deploying/blob/master/images/tutorial.jpeg "how to set it up on Google Domains")
+![alt text](./images/tutorial.jpeg "how to set it up on Google Domains")
 
 This is the UI to set it up on Google Domains.
 
